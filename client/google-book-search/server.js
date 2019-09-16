@@ -7,6 +7,8 @@ const mongoose = require("mongoose");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(__dirname + "/public"));
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -15,20 +17,22 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use(routes);
 
+//Mongoose connection
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
+  // {
+  //   useCreateIndex: true,
+  //   useNewUrlParser: true
+  // }
+
 // Send every other request to the React app
 
 // Define any API routes before this runs
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// })
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+})
 
-//Mongoose connection
-mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
-    // {
-    //   useCreateIndex: true,
-    //   useNewUrlParser: true
-    // }
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

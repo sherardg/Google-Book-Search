@@ -12,7 +12,7 @@ class Saved extends Component {
         books: []
     };
 
-ComponentDidMount() {
+componentDidMount() {
     this.getSavedBooks();
 }
 
