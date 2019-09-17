@@ -19,11 +19,12 @@ app.use(routes);
 
 //Mongoose connection
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
-  // {
-  //   useCreateIndex: true,
-  //   useNewUrlParser: true
-  // }
+  process.env.MONGODB_URI || "mongodb://localhost/googlebooks",
+  {
+    useCreateIndex: true,
+    useNewUrlParser: true
+  }
+);
 
 // Send every other request to the React app
 

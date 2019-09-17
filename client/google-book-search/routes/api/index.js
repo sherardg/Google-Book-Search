@@ -9,9 +9,5 @@ router.use("/books", bookRoutes);
 //Google routes
 router.use("/google", googleRoutes);
 
-//For everything else, render the html page
-router.use(function(req, res) {
-    res.sendFile(path.join(__dirname, "../../client/build/index.html"));
-});
 
 module.exports = router;
