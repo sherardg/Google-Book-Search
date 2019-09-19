@@ -25,7 +25,10 @@ function Form ({ searchTerm, handleInputChange, handleFormSubmit}) {
                 className="btn btn-lg btn-danger float-right"
                 >
                     Search
+                    
+                {console.log("button-clicked")}
                 </button>
+                
             </div>
         </form>
     );
