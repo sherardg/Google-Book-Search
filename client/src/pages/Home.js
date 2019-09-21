@@ -11,7 +11,7 @@ import { List } from "../components/List";
 class Home extends Component {
   state = {
     books: [],
-    searchTerm: "",
+    q: "",
     message: "Search For A Book To Begin!"
   };
 
@@ -23,7 +23,7 @@ class Home extends Component {
   };
 
   getBooks = () => {
-    API.getBooks(this.state.searchTerm)
+    API.getBooks(this.state.q)
       .then(res =>
         this.setState({
           books: res.data
@@ -72,7 +72,7 @@ class Home extends Component {
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
-                searchTerm={this.state.searchTerm}
+                q={this.state.q}
               />
             </Card>
           </Col>
