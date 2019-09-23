@@ -6,29 +6,36 @@ module.exports = {
         db.Book
             .find(req.query)
             .sort({ date: -1 })
-            .then(dbModel => res.json(dbModel))
+            .then(dbBook => res.json(dbBook))
             .catch(err => res.status(422).json(err));
+            console.log(res);
     },
 
-    findByID: function(req, res) {
+    findById: function(req, res) {
         db.Book
-            .find(req.params.id)
-            .then(dbModel => res.json(dbModel))
+            .findById(req.params.id)
+            .then(dbBook => res.json(dbBook))
             .catch(err => res.status(422).json(err));
     },
 
     create: function(req, res) {
         db.Book
             .create(req.body)
-            .then(dbModel => res.json(dbModel))
+            .then(dbBook => res.json(dbBook))
             .catch(err => res.status(422).json(err));
     },
 
     update: function(req, res) {
         db.Book
-            .findByID({ _id: req.params.id })
-            .then(dbModel => dbModel.remove())
-            .then(dbModel => res.json(dbModel))
+            .findOneAndUpdate({ _id: req.params.id })
+            .then(dbBook => dbBook.remove())
+            .then(dbBook => res.json(dbBook))
             .catch(err => res.status(422).json(err));
-    }
+    },
+    remove: function(req, res) {
+        db.Book.findById(req.params.id)
+          .then(dbBook => dbBook.remove())
+          .then(dbBook => res.json(dbBook))
+          .catch(err => res.status(422).json(err));
+    }    
 };
