@@ -52,6 +52,7 @@ render() {
                     <Book
                       key={book._id}
                       title={book.title}
+                      subtitle={book.subtitle}
                       link={book.link}
                       authors={book.authors.join(", ")}
                       description={book.description}
