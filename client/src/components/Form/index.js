@@ -1,6 +1,6 @@
 import React from "react";
 
-function Form ({ searchTerm, handleInputChange, handleFormSubmit}) {
+function Form ({ q, handleInputChange, handleFormSubmit }) {
     return (
         <form>
             <div className="form-group">
@@ -11,9 +11,9 @@ function Form ({ searchTerm, handleInputChange, handleFormSubmit}) {
                 className="form-control"
                 id="Title"
                 type="text"
-                value={searchTerm}
+                value={q}
                 placeholder="Ready To Search"
-                name="searchTerm"
+                name="q"
                 onChange={handleInputChange}
                 required
                 />

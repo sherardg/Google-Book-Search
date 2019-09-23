@@ -2,12 +2,13 @@ import React from "react";
 import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 
-function Book({ title, authors, description, link, image, Button}) {
+function Book({ title, subtitle, authors, description, link, image, Button}) {
     return (
         <ListItem>
             <Row className="flex-wrap-reverse">
                 <Col size="md-8">
                     <h3>{title}</h3>
+                    {subtitle && <h4 className="font-italic">{subtitle}</h4>}
                 </Col>
                 <Col size="md-4">
                     <div className="btn-container">

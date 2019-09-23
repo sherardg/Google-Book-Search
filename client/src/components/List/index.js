@@ -1,7 +1,7 @@
 import React from "react";
 
 export const List = ({ children }) => (
-    <ul className="List-group">
+    <ul className="list-group">
         {children}
     </ul>
 );

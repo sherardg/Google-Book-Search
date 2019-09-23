@@ -3,7 +3,7 @@ import "./style.css";
 
 function Jumbotron({ children }) {
     return <div className="jumbotron mt-4">{children}
-    </div>
-};
+    </div>;
+}
 
 export default Jumbotron;
